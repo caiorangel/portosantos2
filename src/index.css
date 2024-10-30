@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 221 90% 98%;
+    --primary-dark: 221 90% 95%;
+    --secondary: 210 100% 12%;
+    --accent: 142 76% 36%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply antialiased text-gray-900;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 
+           text-white font-medium px-8 py-4 rounded-full transition-all duration-300 
+           shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20 
+           text-white font-medium px-8 py-4 rounded-full 
+           hover:bg-white/20 transition-all duration-300;
+  }
+
+  .feature-card {
+    @apply relative overflow-hidden rounded-2xl p-8 transition-all duration-500
+           hover:shadow-2xl hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50;
+  }
+
+  .feature-icon {
+    @apply absolute -right-6 -bottom-6 opacity-[0.03] w-32 h-32 transform rotate-12;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800;
+  }
+
+  .mask-fade-out {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+}
+
+/* Video Enhancement */
+video {
+  filter: brightness(0.7) contrast(1.1);
+  transform: scale(1.02);
+}
